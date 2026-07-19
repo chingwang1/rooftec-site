@@ -1,4 +1,4 @@
-# Rooftec local SEO site
+# Roofing Brisbane local SEO site
 
 Static multi-page roofing site built for **local rankings** (Rank & Rent / service-area SEO style).
 
@@ -81,7 +81,7 @@ Each service page includes: who needs it, **common examples**, process, cost ran
 
 ## Before go-live / custom domain
 
-1. Replace phone `1300 000 000`, email, domain `rooftec.example`
+1. Replace phone `0481 255 051`, email, domain `Roofing Brisbane.example`
 2. Add QBCC licence, ABN, real address if public
 3. Point canonical URLs + sitemap to your real domain
 4. Optional: GitHub Pages → **Custom domain** (e.g. `www.yourroofing.com.au`)

@@ -67,15 +67,20 @@ ul { list-style: none; }
     color: var(--navy);
 }
 
-.brand img {
-    height: 48px;
-    width: auto;
+.brand img,
+.brand-mark {
+    height: 44px;
+    width: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .brand-text {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.45rem;
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
     font-weight: 700;
+    line-height: 1.15;
+    max-width: 11ch;
 }
 .brand-text span { color: var(--accent); }
 
