@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.rooftec.example/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://www.rooftec.example/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.rooftec.example/contact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.rooftec.example/services/colorbond-roofing.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rooftec.example/services/roof-repairs.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rooftec.example/services/roof-replacement.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rooftec.example/services/gutters-and-box-gutters.html</loc><priority>0.85</priority></url>
+  <url><loc>https://www.rooftec.example/services/wall-cladding.html</loc><priority>0.85</priority></url>
+  <url><loc>https://www.rooftec.example/services/roof-penetrations.html</loc><priority>0.85</priority></url>
+  <url><loc>https://www.rooftec.example/areas/brisbane.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rooftec.example/areas/sunshine-coast.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rooftec.example/areas/gold-coast-tweed.html</loc><priority>0.85</priority></url>
+</urlset>
