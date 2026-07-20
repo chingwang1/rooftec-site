@@ -8,7 +8,7 @@
  */
 (function () {
   var FALLBACK =
-    "https://formsubmit.co/ajax/kylehunt2017@gmail.com";
+    "https://formsubmit.co/ajax/roofingbrisbane2027@gmail.com";
 
   function apiUrl() {
     return window.CONTACT_API_URL || "";
@@ -110,7 +110,7 @@
       showStatus(
         form,
         false,
-        "<strong>Could not send.</strong> Please call <a href='tel:+61481255051'>0481 255 051</a> or email <a href='mailto:kylehunt2017@gmail.com'>kylehunt2017@gmail.com</a>."
+        "<strong>Could not send.</strong> Please call <a href='tel:+61411510699'>0411 510 699</a> or email <a href='mailto:roofingbrisbane2027@gmail.com'>roofingbrisbane2027@gmail.com</a>."
       );
       console.error(err);
     } finally {

@@ -65,7 +65,7 @@ Or edit `js/contact-api.js` after deploy.
 ```powershell
 curl -X POST https://roofing-brisbane-contact.YOUR_SUBDOMAIN.workers.dev ^
   -H "Content-Type: application/json" ^
-  -d "{\"name\":\"Test\",\"phone\":\"0481255051\",\"email\":\"you@test.com\",\"suburb\":\"Brisbane\",\"service\":\"Repairs\",\"message\":\"Hello from curl\"}"
+  -d "{\"name\":\"Test\",\"phone\":\"0411510699\",\"email\":\"you@test.com\",\"suburb\":\"Brisbane\",\"service\":\"Repairs\",\"message\":\"Hello from curl\"}"
 ```
 
 You should get `{ "ok": true }` and an email in Gmail.
