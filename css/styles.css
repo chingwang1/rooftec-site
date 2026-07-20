@@ -492,10 +492,331 @@ a.card:hover {
 }
 .enquiry-form textarea { min-height: 90px; resize: vertical; }
 
+/* ── Landing hero (matches original roofing-landing.html top) ── */
+.landing-top {
+    background: var(--white);
+}
+.landing-top .sale-bar a {
+    color: #7dd3fc;
+    text-decoration: none;
+}
+.landing-logo-wrap {
+    text-align: center;
+    padding: 22px 20px 8px;
+}
+.landing-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    display: inline-block;
+}
+.landing-logo span { color: var(--accent); }
+.landing-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    padding: 0 16px 12px;
+    font-size: 0.88rem;
+}
+.landing-nav a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+}
+.landing-nav a:hover { color: var(--accent); }
+
+.landing-hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+.landing-hero .panel {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 28px 28px 24px;
+}
+.landing-hero .panel h1 {
+    font-size: clamp(1.55rem, 2.8vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+.landing-hero .panel .sub {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+}
+.landing-hero .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.landing-hero .problem-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+.landing-hero .icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(26, 43, 74, 0.08);
+}
+.landing-hero .icon-wrap svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent);
+}
+
+.visual.carousel {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4 / 3.2;
+    background: var(--panel-soft);
+    box-shadow: var(--shadow);
+}
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+}
+.carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.carousel-slide.map-slide img {
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 10px;
+}
+.visual-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    max-width: calc(100% - 100px);
+}
+.carousel-nav {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+}
+.carousel-nav button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--navy);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(26, 43, 74, 0.15);
+}
+.carousel-nav button:hover { background: var(--white); }
+.carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+}
+.carousel-dots button {
+    width: 7px;
+    height: 7px;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    background: rgba(26, 43, 74, 0.25);
+    cursor: pointer;
+}
+.carousel-dots button.active {
+    background: var(--navy);
+    transform: scale(1.15);
+}
+
+.offer-col { padding-top: 4px; }
+.offer-col h2 {
+    font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.22;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+.offer-col .hook {
+    font-size: 0.98rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+.offer-col .benefit-list {
+    list-style: none;
+    margin-bottom: 24px;
+}
+.offer-col .benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 11px;
+    font-size: 0.92rem;
+    color: var(--text);
+}
+.offer-col .benefit-list li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c45c26' stroke-width='2.5'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.offer-col .cta {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--navy);
+    color: var(--white) !important;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+.offer-col .cta:hover {
+    background: var(--navy-dark);
+    transform: translateY(-1px);
+}
+.offer-col .enquiry-form {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.offer-col .enquiry-form label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.offer-col .enquiry-form input,
+.offer-col .enquiry-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #cdd8e6;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--white);
+}
+.offer-col .enquiry-form input:focus,
+.offer-col .enquiry-form textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+}
+.offer-col .enquiry-form textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+.cta-secondary {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    background: var(--white);
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.cta-secondary:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+.offer-col .guarantee {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--panel);
+    border-radius: 10px;
+    background: var(--panel-soft);
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+}
+.offer-col .guarantee strong { color: var(--navy); }
+.secondary-link {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-decoration: none;
+}
+.secondary-link:hover { color: var(--accent); text-decoration: underline; }
+
 @media (max-width: 900px) {
     .hero, .grid-3, .grid-2, .footer-inner, .two-col-content {
         grid-template-columns: 1fr;
     }
+    .landing-hero {
+        grid-template-columns: 1fr;
+    }
+    .offer-col { order: -1; }
     .side-card { position: static; }
     .nav { width: 100%; }
+}
+@media (max-width: 480px) {
+    .landing-hero .panel { padding: 20px 18px; }
+    .landing-logo { font-size: 1.55rem; }
 }
