@@ -71,11 +71,7 @@
 <div class="side-card">
     <h3>Request a callback</h3>
     <!-- FormSubmit delivers to Gmail from static GitHub Pages (no server required) -->
-    <form class="enquiry-form" action="https://formsubmit.co/kylehunt2017@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Roofing Brisbane — website enquiry">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://chingwang1.github.io/rooftec-site/contact.html?sent=1">
+    <form class="enquiry-form js-contact-api" action="#" method="POST">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <label for="name">Name</label>
@@ -106,7 +102,7 @@
 
         <button class="cta cta-block" type="submit">Send enquiry</button>
     </form>
-    <p class="guarantee"><strong>First time:</strong> FormSubmit will email <em>kylehunt2017@gmail.com</em> a confirmation link — click it once so messages start arriving in your inbox (check spam).</p>
+    <p class="guarantee">Messages go to <strong>kylehunt2017@gmail.com</strong> via our Cloudflare Worker + Resend (falls back to FormSubmit until the Worker URL is set).</p>
 </div>
 </div></section>
 </main>
@@ -128,10 +124,9 @@
         <div class="legal">© 2026 Roofing Brisbane · Brisbane &amp; South East Queensland</div>
     </footer>
 <script>
-if (new URLSearchParams(location.search).get('sent') === '1') {
-  var el = document.getElementById('form-success');
-  if (el) el.style.display = 'block';
-}
+// After `wrangler deploy`, paste your workers.dev URL here:
+// window.CONTACT_API_URL = "https://roofing-brisbane-contact.YOUR_SUBDOMAIN.workers.dev";
 </script>
+<script src="js/contact-api.js"></script>
 </body>
 </html>

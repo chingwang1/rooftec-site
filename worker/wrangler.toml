@@ -1,0 +1,14 @@
+name = "roofing-brisbane-contact"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# After deploy, set secrets (never commit keys):
+#   npx wrangler secret put RESEND_API_KEY
+#   npx wrangler secret put TO_EMAIL          # optional, defaults in code
+#   npx wrangler secret put FORM_SECRET      # optional shared secret
+
+[vars]
+# Public non-secret config
+ALLOWED_ORIGINS = "https://chingwang1.github.io,http://localhost:3000,http://127.0.0.1:5500,null"
+FROM_EMAIL = "Roofing Brisbane <onboarding@resend.dev>"
+TO_EMAIL = "kylehunt2017@gmail.com"

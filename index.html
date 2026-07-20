@@ -39,7 +39,7 @@
         </div>
 
         <div class="landing-logo-wrap">
-            <a class="landing-logo" href="index.html">Queensland <span>Roofing Services</span></a>
+            <a class="landing-logo" href="index.html">Brisbane <span>Roofing Services</span></a>
         </div>
         <nav class="landing-nav" aria-label="Site">
             <a href="services/colorbond-roofing.html">Services</a>
@@ -124,11 +124,7 @@
                     <li>QBCC-licensed · fully insured · 10-year workmanship warranty</li>
                 </ul>
                 <a class="cta" href="tel:+61481255051">BOOK FREE INSPECTION &amp; SAVE UP TO 15%</a>
-                <form class="enquiry-form" action="https://formsubmit.co/kylehunt2017@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Roofing Brisbane — homepage enquiry">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://chingwang1.github.io/rooftec-site/contact.html?sent=1">
+                <form class="enquiry-form js-contact-api" action="#" method="POST">
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
@@ -278,5 +274,10 @@
             resetTimer();
         })();
     </script>
+    <script>
+    // After Worker deploy, set:
+    // window.CONTACT_API_URL = "https://roofing-brisbane-contact.YOUR_SUBDOMAIN.workers.dev";
+    </script>
+    <script src="js/contact-api.js"></script>
 </body>
 </html>
