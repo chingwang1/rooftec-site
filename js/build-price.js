@@ -10,11 +10,25 @@
   //   ((base + 19 + 14 + 1.785 + profileExtra) * m2 + 1950) * 1.1
   //   base: Metal 108, Decramastic 122; Kliplok +10
   // We undercut slightly and expose the line items.
+  // Default scope = FULL RE-ROOF: strip/remove old covering + supply & install new Colorbond.
+  // "new" scope = new install only (no strip-out), e.g. new build / carport.
   var RATES = {
+    // Full re-roof base (includes remove old sheets/tiles labour band)
     basePerM2: {
-      metal: 102, // vs ~108
-      tile: 115, // vs ~122 (includes strip allowance)
+      metal: 102, // strip old metal + re-sheet
+      tile: 115, // strip tile/decramastic + new metal
       unknown: 108,
+    },
+    // New install only (no strip) — lower labour band
+    basePerM2New: {
+      metal: 88,
+      tile: 88, // no existing tile to strip on true new work
+      unknown: 90,
+    },
+    stripNote: {
+      metal: "Includes remove old metal sheets",
+      tile: "Includes strip old tile / decramastic",
+      unknown: "Includes typical strip-out allowance",
     },
     flashingsPerM2: 17, // valleys, ridges, barges package
     installPerM2: 13, // labour/install band
@@ -22,16 +36,16 @@
     profileExtra: {
       corrugated: 0,
       trimdek: 2,
-      kliplok: 9, // vs +10
+      kliplok: 9,
     },
     storeyMult: {
       single: 1,
       double: 1.12,
       complex: 1.22,
     },
-    fixedSetup: 1750, // vs ~1950
-    contingency: 1.08, // vs 1.10
-    // Optional add-ons (toggles)
+    fixedSetup: 1750, // full re-roof site setup
+    fixedSetupNew: 1200, // new install setup (lighter strip labour)
+    contingency: 1.08,
     guttersPerM2: 18,
     sarkingPerM2: 12,
     solarCoordFixed: 650,
@@ -67,6 +81,7 @@
     planM2: 0,
     pitch: 22.5,
     useSurface: true,
+    scope: "full", // full = strip + re-roof; new = install only
     storey: "single",
     profile: "corrugated",
     colour: "Surfmist",
@@ -116,7 +131,9 @@
 
   function computePrice() {
     var m2 = Math.max(0, state.areaM2 || 0);
-    var base = RATES.basePerM2[state.currentRoof] || RATES.basePerM2.unknown;
+    var isFull = state.scope !== "new";
+    var baseTable = isFull ? RATES.basePerM2 : RATES.basePerM2New;
+    var base = baseTable[state.currentRoof] || baseTable.unknown;
     var profileEx = RATES.profileExtra[state.profile] || 0;
     var perM2 =
       base +
@@ -127,19 +144,22 @@
     if (state.gutters) perM2 += RATES.guttersPerM2;
     if (state.sarking) perM2 += RATES.sarkingPerM2;
 
+    var fixedSetup = isFull ? RATES.fixedSetup : RATES.fixedSetupNew;
     var storeyMult = RATES.storeyMult[state.storey] || 1;
     var sub =
-      (perM2 * m2 + RATES.fixedSetup + (state.solar ? RATES.solarCoordFixed : 0)) *
+      (perM2 * m2 + fixedSetup + (state.solar ? RATES.solarCoordFixed : 0)) *
       storeyMult;
     var total = sub * RATES.contingency;
 
     return {
       m2: m2,
+      isFull: isFull,
       base: base,
       profileEx: profileEx,
       perM2: perM2,
       storeyMult: storeyMult,
-      fixed: RATES.fixedSetup + (state.solar ? RATES.solarCoordFixed : 0),
+      fixed: fixedSetup + (state.solar ? RATES.solarCoordFixed : 0),
+      fixedSetup: fixedSetup,
       sub: sub,
       total: total,
       low: total * 0.92,
@@ -163,27 +183,69 @@
     }[c] || c;
   }
 
+  function scopeLabel(s) {
+    return s === "new"
+      ? "New install only"
+      : "Full re-roof (strip + new)";
+  }
+
   function renderPrice() {
     var p = computePrice();
     setText("bp-total", money(p.total));
     setText("bp-range", money(p.low) + " – " + money(p.high));
     setText("bp-per-m2", money(p.perM2) + " / m² package");
     setText("bp-area-display", "Based on " + fmt(p.m2, 1) + " m²");
+    setText(
+      "bp-scope-note",
+      p.isFull
+        ? "Full re-roof: remove old covering + supply & install new Colorbond package"
+        : "New install only: supply & install new roof (no strip-out of existing roof)"
+    );
 
     // Breakdown
+    var baseLabel = p.isFull
+      ? "Base full re-roof rate"
+      : "Base new-install rate";
     var rows = [
+      ["Job scope", scopeLabel(state.scope)],
       ["Roof area used", fmt(p.m2, 1) + " m²"],
-      ["Base re-roof rate", money(p.base) + " / m² (" + currentLabel(state.currentRoof) + ")"],
+      [
+        baseLabel,
+        money(p.base) +
+          " / m² (" +
+          currentLabel(state.currentRoof) +
+          ")",
+      ],
+    ];
+    if (p.isFull) {
+      rows.push([
+        "Strip-out included",
+        RATES.stripNote[state.currentRoof] || RATES.stripNote.unknown,
+      ]);
+    }
+    rows.push(
       ["Flashings package", money(RATES.flashingsPerM2) + " / m²"],
       ["Install labour band", money(RATES.installPerM2) + " / m²"],
-      ["Waste / cuts", money(RATES.wastePerM2) + " / m²"],
-    ];
+      ["Waste / cuts", money(RATES.wastePerM2) + " / m²"]
+    );
     if (p.profileEx)
-      rows.push(["Profile premium (" + profileLabel(state.profile) + ")", "+" + money(p.profileEx) + " / m²"]);
-    if (state.gutters) rows.push(["Gutters & downpipes", "+" + money(RATES.guttersPerM2) + " / m²"]);
-    if (state.sarking) rows.push(["Sarking / insulation band", "+" + money(RATES.sarkingPerM2) + " / m²"]);
-    if (state.solar) rows.push(["Solar coordination", money(RATES.solarCoordFixed) + " fixed"]);
-    rows.push(["Site setup / access", money(RATES.fixedSetup)]);
+      rows.push([
+        "Profile premium (" + profileLabel(state.profile) + ")",
+        "+" + money(p.profileEx) + " / m²",
+      ]);
+    if (state.gutters)
+      rows.push([
+        "Gutters & downpipes",
+        "+" + money(RATES.guttersPerM2) + " / m²",
+      ]);
+    if (state.sarking)
+      rows.push([
+        "Sarking / insulation band",
+        "+" + money(RATES.sarkingPerM2) + " / m²",
+      ]);
+    if (state.solar)
+      rows.push(["Solar coordination", money(RATES.solarCoordFixed) + " fixed"]);
+    rows.push(["Site setup / access", money(p.fixedSetup)]);
     if (p.storeyMult > 1)
       rows.push(["Storey / complexity", "×" + p.storeyMult.toFixed(2)]);
     rows.push(["Planning contingency", "×" + RATES.contingency.toFixed(2)]);
@@ -204,11 +266,18 @@
     }
 
     // Summary chips
+    setText("sum-scope", scopeLabel(state.scope));
     setText("sum-storey", storeyLabel(state.storey));
     setText("sum-profile", profileLabel(state.profile));
     setText("sum-colour", state.colour);
     setText("sum-current", currentLabel(state.currentRoof));
     setText("sum-area", fmt(p.m2, 1) + " m²");
+
+    // Show/hide current-roof block relevance
+    var currentBlock = $("bp-current-block");
+    if (currentBlock) {
+      currentBlock.style.opacity = p.isFull ? "1" : "0.55";
+    }
 
     // Preview swatch
     var prev = $("bp-preview");
@@ -513,6 +582,7 @@
       });
     }
 
+    selectToggle("[data-scope]", "data-scope", "scope");
     selectToggle("[data-storey]", "data-storey", "storey");
     selectToggle("[data-profile]", "data-profile", "profile");
     selectToggle("[data-current]", "data-current", "currentRoof");
@@ -583,6 +653,9 @@
             if (notes.indexOf("Build & price enquiry") === 0) return;
             enq.value =
               "Build & price enquiry\n" +
+              "Scope: " +
+              scopeLabel(state.scope) +
+              "\n" +
               "Area: " +
               fmt(p.m2, 1) +
               " m²\n" +
@@ -626,6 +699,11 @@
     renderPrice();
 
     // Mark default toggles active
+    document
+      .querySelectorAll('[data-scope="' + state.scope + '"]')
+      .forEach(function (b) {
+        b.classList.add("is-active");
+      });
     document
       .querySelectorAll('[data-storey="' + state.storey + '"]')
       .forEach(function (b) {

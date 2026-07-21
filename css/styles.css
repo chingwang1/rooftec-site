@@ -1293,14 +1293,15 @@ a.card:hover {
 .bp-summary span { color: var(--muted); }
 .bp-summary strong { color: var(--navy); font-size: 0.9rem; }
 
-/* Estimate box — high contrast on navy */
+/* Estimate box — lighter blue panel, white total + drop shadow */
 .bp-price-hero {
-    background: linear-gradient(160deg, #163056 0%, #0f1a2e 60%, #1a2b4a 100%);
+    background: linear-gradient(165deg, #5b9fd4 0%, #4a8fc8 45%, #3d7eb8 100%);
     color: #fff;
     border-radius: 12px;
     padding: 16px 16px 14px;
     margin-bottom: 12px;
-    border: 1px solid rgba(125, 211, 252, 0.18);
+    border: 1px solid #7eb6e0;
+    box-shadow: 0 8px 22px rgba(45, 100, 150, 0.22);
 }
 .bp-price-kicker {
     display: block;
@@ -1308,7 +1309,7 @@ a.card:hover {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #7dd3fc;
+    color: #eaf5ff;
     margin-bottom: 4px;
 }
 .bp-total {
@@ -1316,12 +1317,24 @@ a.card:hover {
     font-weight: 800;
     margin: 0 0 6px;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: #ffffff !important;
     line-height: 1.1;
+    text-shadow:
+        0 1px 0 rgba(15, 40, 70, 0.25),
+        0 2px 8px rgba(15, 40, 70, 0.35),
+        0 4px 14px rgba(15, 40, 70, 0.2);
+}
+.bp-scope-note {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: #f0f7ff;
+    margin: 0 0 10px;
+    font-weight: 500;
+    opacity: 0.95;
 }
 .bp-range-line {
     font-size: 0.9rem;
-    color: #d7e3f2;
+    color: #eef6ff;
     margin: 0 0 10px;
     font-weight: 500;
 }
@@ -1329,6 +1342,7 @@ a.card:hover {
     color: #ffffff;
     font-weight: 800;
     font-size: 1rem;
+    text-shadow: 0 1px 3px rgba(15, 40, 70, 0.25);
 }
 .bp-price-meta {
     display: flex;
@@ -1341,12 +1355,19 @@ a.card:hover {
     align-items: center;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #0f1a2e;
-    background: #e8f4fc;
-    border: 1px solid #9fd4f0;
+    color: #1a3a5c;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 999px;
     padding: 5px 10px;
     line-height: 1.2;
+    box-shadow: 0 1px 4px rgba(20, 50, 80, 0.12);
+}
+.bp-scope-hint {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin: 6px 0 0;
+    line-height: 1.35;
 }
 .bp-breakdown-wrap {
     border: 1px solid #e2e8f0;
@@ -1445,9 +1466,10 @@ a.card:hover {
     right: 0;
     bottom: 0;
     z-index: 60;
-    background: rgba(15, 26, 46, 0.97);
+    background: linear-gradient(90deg, #4a8fc8 0%, #3d7eb8 100%);
     color: #fff;
-    border-top: 1px solid rgba(125, 211, 252, 0.2);
+    border-top: 1px solid #7eb6e0;
+    box-shadow: 0 -4px 18px rgba(45, 100, 150, 0.2);
     backdrop-filter: blur(8px);
 }
 .bp-sticky-inner {
@@ -1464,17 +1486,29 @@ a.card:hover {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #7dd3fc;
+    color: #eaf5ff;
 }
-.bp-sticky strong {
+.bp-sticky strong,
+#bp-sticky-total {
     font-size: 1.25rem;
     margin-right: 8px;
-    color: #fff;
+    color: #ffffff !important;
+    text-shadow:
+        0 1px 0 rgba(15, 40, 70, 0.25),
+        0 2px 8px rgba(15, 40, 70, 0.35);
 }
 .bp-sticky-meta {
-    color: #d7e3f2;
+    color: #eef6ff;
     font-size: 0.85rem;
     font-weight: 600;
+}
+.bp-sticky .cta {
+    background: #fff;
+    color: #1a3a5c !important;
+    box-shadow: 0 2px 8px rgba(15, 40, 70, 0.18);
+}
+.bp-sticky .cta:hover {
+    background: #f0f7ff;
 }
 .nav-pricing {
     background: var(--accent) !important;

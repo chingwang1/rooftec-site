@@ -91,7 +91,7 @@
         <div class="container">
             <p class="breadcrumb"><a href="index.html">Home</a> · Pricing</p>
             <h1>Build &amp; Price Your Roof</h1>
-            <p class="lede">Measure on satellite, choose Colorbond profile and colour, and see a <strong>competitive SEQ estimate</strong> — transparent line items, not a black-box total. Final price confirmed on free inspection.</p>
+            <p class="lede">Measure on satellite, choose Colorbond profile and colour, and see a <strong>competitive SEQ estimate</strong>. Default pricing is a <strong>full re-roof</strong> (remove old sheets/tiles + supply &amp; install new). Switch to new-install only if there is nothing to strip. Final price confirmed on free inspection.</p>
         </div>
     </section>
 
@@ -148,6 +148,15 @@
                     <h2 class="bp-card-title">2. Customise</h2>
 
                     <div class="bp-block">
+                        <span class="bp-label">Job scope</span>
+                        <div class="bp-toggles">
+                            <button type="button" class="bp-toggle" data-scope="full" title="Remove old covering and install new Colorbond">Full re-roof</button>
+                            <button type="button" class="bp-toggle" data-scope="new" title="New install only — no strip-out">New install only</button>
+                        </div>
+                        <p class="bp-scope-hint">Full re-roof includes stripping old sheets or tiles before the new roof goes on.</p>
+                    </div>
+
+                    <div class="bp-block">
                         <span class="bp-label">House type</span>
                         <div class="bp-toggles">
                             <button type="button" class="bp-toggle" data-storey="single">Single</button>
@@ -179,8 +188,8 @@
                         <div id="bp-colours" class="bp-colours" role="listbox" aria-label="Colorbond-style colours"></div>
                     </div>
 
-                    <div class="bp-block">
-                        <span class="bp-label">Current roof</span>
+                    <div class="bp-block" id="bp-current-block">
+                        <span class="bp-label">Current roof (for strip-out)</span>
                         <div class="bp-toggles">
                             <button type="button" class="bp-toggle" data-current="metal">Metal</button>
                             <button type="button" class="bp-toggle" data-current="tile">Tile</button>
@@ -209,6 +218,7 @@
                 <div class="bp-card bp-price-card">
                     <h2 class="bp-card-title">3. Estimate</h2>
                     <div class="bp-summary">
+                        <div class="bp-summary-wide"><span>Scope</span><strong id="sum-scope">—</strong></div>
                         <div><span>Area</span><strong id="sum-area">—</strong></div>
                         <div><span>House</span><strong id="sum-storey">—</strong></div>
                         <div><span>Profile</span><strong id="sum-profile">—</strong></div>
@@ -219,6 +229,7 @@
                     <div class="bp-price-hero">
                         <span class="bp-price-kicker">Estimated price</span>
                         <p class="bp-total" id="bp-total">—</p>
+                        <p class="bp-scope-note" id="bp-scope-note">Full re-roof: remove old covering + supply &amp; install new Colorbond package</p>
                         <p class="bp-range-line">Typical range <strong id="bp-range">—</strong></p>
                         <div class="bp-price-meta">
                             <span id="bp-per-m2">—</span>
@@ -233,7 +244,7 @@
                         </table>
                     </details>
 
-                    <p class="bp-disclaimer">Planning estimate only — not a fixed quote. Confirmed on free inspection.</p>
+                    <p class="bp-disclaimer">Planning estimate only — not a fixed quote. Includes strip + new install when “Full re-roof” is selected. Confirmed on free inspection.</p>
 
                     <div class="bp-cta-row">
                         <a class="cta cta-block" href="tel:+61411510699">Call 0411 510 699</a>
