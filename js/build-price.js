@@ -202,69 +202,6 @@
         : "New install only: supply & install new roof (no strip-out of existing roof)"
     );
 
-    // Breakdown
-    var baseLabel = p.isFull
-      ? "Base full re-roof rate"
-      : "Base new-install rate";
-    var rows = [
-      ["Job scope", scopeLabel(state.scope)],
-      ["Roof area used", fmt(p.m2, 1) + " m²"],
-      [
-        baseLabel,
-        money(p.base) +
-          " / m² (" +
-          currentLabel(state.currentRoof) +
-          ")",
-      ],
-    ];
-    if (p.isFull) {
-      rows.push([
-        "Strip-out included",
-        RATES.stripNote[state.currentRoof] || RATES.stripNote.unknown,
-      ]);
-    }
-    rows.push(
-      ["Flashings package", money(RATES.flashingsPerM2) + " / m²"],
-      ["Install labour band", money(RATES.installPerM2) + " / m²"],
-      ["Waste / cuts", money(RATES.wastePerM2) + " / m²"]
-    );
-    if (p.profileEx)
-      rows.push([
-        "Profile premium (" + profileLabel(state.profile) + ")",
-        "+" + money(p.profileEx) + " / m²",
-      ]);
-    if (state.gutters)
-      rows.push([
-        "Gutters & downpipes",
-        "+" + money(RATES.guttersPerM2) + " / m²",
-      ]);
-    if (state.sarking)
-      rows.push([
-        "Sarking / insulation band",
-        "+" + money(RATES.sarkingPerM2) + " / m²",
-      ]);
-    if (state.solar)
-      rows.push(["Solar coordination", money(RATES.solarCoordFixed) + " fixed"]);
-    rows.push(["Site setup / access", money(p.fixedSetup)]);
-    if (p.storeyMult > 1)
-      rows.push(["Storey / complexity", "×" + p.storeyMult.toFixed(2)]);
-    rows.push(["Planning contingency", "×" + RATES.contingency.toFixed(2)]);
-
-    var tbody = $("bp-breakdown");
-    if (tbody) {
-      tbody.innerHTML = rows
-        .map(function (r) {
-          return (
-            "<tr><td>" +
-            r[0] +
-            '</td><td class="bp-num">' +
-            r[1] +
-            "</td></tr>"
-          );
-        })
-        .join("");
-    }
-
     // Summary chips
     setText("sum-scope", scopeLabel(state.scope));
     setText("sum-storey", storeyLabel(state.storey));
@@ -279,19 +216,22 @@
       currentBlock.style.opacity = p.isFull ? "1" : "0.55";
     }
 
-    // Preview swatch
+    // Roof colour preview (profile ribs + colour, no house)
     var prev = $("bp-preview");
     if (prev) {
       var col = COLOURS.find(function (c) {
         return c.name === state.colour;
       });
       var hex = col ? col.hex : "#e4e2d5";
-      prev.style.background = hex;
       prev.setAttribute("data-profile", state.profile);
+      var roof = prev.querySelector(".bp-preview-roof");
+      if (roof) {
+        roof.style.backgroundColor = hex;
+        roof.style.setProperty("--roof-colour", hex);
+      }
       var label = $("bp-preview-label");
       if (label) {
         label.textContent = profileLabel(state.profile) + " · " + state.colour;
-        label.style.color = isLight(hex) ? "#1a2b4a" : "#fff";
       }
     }
 
@@ -640,51 +580,6 @@
       if (wrap && box && !wrap.contains(e.target)) box.hidden = true;
     });
 
-    // Enquiry form: attach estimate summary to message on submit
-    var enq = $("bp-enquiry-msg");
-    if (enq) {
-      var form = enq.closest("form");
-      if (form) {
-        form.addEventListener(
-          "submit",
-          function () {
-            var p = computePrice();
-            var notes = enq.value.trim();
-            if (notes.indexOf("Build & price enquiry") === 0) return;
-            enq.value =
-              "Build & price enquiry\n" +
-              "Scope: " +
-              scopeLabel(state.scope) +
-              "\n" +
-              "Area: " +
-              fmt(p.m2, 1) +
-              " m²\n" +
-              "Profile: " +
-              profileLabel(state.profile) +
-              "\n" +
-              "Colour: " +
-              state.colour +
-              "\n" +
-              "Current roof: " +
-              currentLabel(state.currentRoof) +
-              "\n" +
-              "Storey: " +
-              storeyLabel(state.storey) +
-              "\n" +
-              "Est. price: " +
-              money(p.total) +
-              " (range " +
-              money(p.low) +
-              " – " +
-              money(p.high) +
-              ")\n" +
-              (state.addressLabel ? "Address: " + state.addressLabel + "\n" : "") +
-              (notes ? "\nCustomer notes:\n" + notes : "");
-          },
-          true
-        );
-      }
-    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {

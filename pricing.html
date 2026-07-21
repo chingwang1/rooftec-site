@@ -186,6 +186,13 @@
                     <div class="bp-block">
                         <span class="bp-label">Colour</span>
                         <div id="bp-colours" class="bp-colours" role="listbox" aria-label="Colorbond-style colours"></div>
+                        <div class="bp-preview" id="bp-preview" data-profile="corrugated">
+                            <div class="bp-preview-sky" aria-hidden="true"></div>
+                            <div class="bp-preview-roof" aria-hidden="true">
+                                <span class="bp-preview-ribs"></span>
+                            </div>
+                            <span id="bp-preview-label">Corrugated · Surfmist</span>
+                        </div>
                     </div>
 
                     <div class="bp-block" id="bp-current-block">
@@ -204,11 +211,6 @@
                             <label class="bp-check"><input type="checkbox" id="bp-sarking" checked> Sarking</label>
                             <label class="bp-check"><input type="checkbox" id="bp-solar"> Solar coord.</label>
                         </div>
-                    </div>
-
-                    <div class="bp-preview" id="bp-preview">
-                        <div class="bp-preview-roof" aria-hidden="true"></div>
-                        <span id="bp-preview-label">Corrugated · Surfmist</span>
                     </div>
                 </div>
             </div>
@@ -237,12 +239,10 @@
                         </div>
                     </div>
 
-                    <details class="bp-breakdown-wrap">
-                        <summary>Price breakdown</summary>
-                        <table class="bp-breakdown">
-                            <tbody id="bp-breakdown"></tbody>
-                        </table>
-                    </details>
+                    <div class="bp-breakdown-cta">
+                        <p>Want a line-by-line price breakdown for your property?</p>
+                        <a class="btn btn-outline cta-block" href="contact.html">Contact us for a detailed quote</a>
+                    </div>
 
                     <p class="bp-disclaimer">Planning estimate only — not a fixed quote. Includes strip + new install when “Full re-roof” is selected. Confirmed on free inspection.</p>
 
@@ -250,18 +250,6 @@
                         <a class="cta cta-block" href="tel:+61411510699">Call 0411 510 699</a>
                         <a class="btn btn-outline cta-block" href="contact.html">Book free inspection</a>
                     </div>
-
-                    <form class="enquiry-form js-contact-api bp-mini-form" action="#" method="POST">
-                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                        <h3>Send this estimate</h3>
-                        <label for="bp-email">Email</label>
-                        <input type="email" id="bp-email" name="email" required autocomplete="email" placeholder="you@email.com">
-                        <label for="bp-phone">Phone</label>
-                        <input type="tel" id="bp-phone" name="phone" autocomplete="tel" placeholder="04…">
-                        <label for="bp-enquiry-msg">Notes</label>
-                        <textarea id="bp-enquiry-msg" name="message" rows="2" placeholder="Suburb, access notes…"></textarea>
-                        <button type="submit" class="cta cta-block">Email my estimate</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -319,9 +307,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
     <script src="js/build-price.js"></script>
-    <script>
-    window.CONTACT_API_URL = "https://roofing-brisbane-contact.kylehunt2017.workers.dev";
-    </script>
-    <script src="js/contact-api.js"></script>
 </body>
 </html>

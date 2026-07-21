@@ -1251,31 +1251,92 @@ a.card:hover {
     margin: 0;
     cursor: pointer;
 }
+/* Roof colour preview — roof plane only (no house) */
 .bp-preview {
     position: relative;
-    height: 72px;
+    height: 88px;
+    margin-top: 10px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding: 8px;
+    padding: 8px 10px;
     border: 1px solid #e2e8f0;
+    background: #eef2f6;
+}
+.bp-preview-sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #c8dff0 0%, #e8eef5 55%, #dfe6ee 100%);
 }
 .bp-preview-roof {
     position: absolute;
-    inset: 16% 10% 30%;
-    background: inherit;
-    filter: brightness(0.95);
-    clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0 100%, 0 40%);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+    left: 8%;
+    right: 8%;
+    top: 18%;
+    bottom: 28%;
+    background-color: #e4e2d5;
+    border-radius: 2px 2px 3px 3px;
+    box-shadow:
+        0 4px 10px rgba(20, 30, 45, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: perspective(220px) rotateX(18deg);
+    transform-origin: center bottom;
+    overflow: hidden;
+}
+.bp-preview-ribs {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.35;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 5px,
+        rgba(0, 0, 0, 0.22) 5px,
+        rgba(0, 0, 0, 0.22) 6px
+    );
+}
+/* Profile-specific rib spacing */
+.bp-preview[data-profile="corrugated"] .bp-preview-ribs {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 4px,
+        rgba(0, 0, 0, 0.2) 4px,
+        rgba(0, 0, 0, 0.2) 5px
+    );
+}
+.bp-preview[data-profile="trimdek"] .bp-preview-ribs {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 10px,
+        rgba(0, 0, 0, 0.28) 10px,
+        rgba(0, 0, 0, 0.28) 13px
+    );
+}
+.bp-preview[data-profile="kliplok"] .bp-preview-ribs {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 14px,
+        rgba(0, 0, 0, 0.3) 14px,
+        rgba(0, 0, 0, 0.3) 18px
+    );
 }
 .bp-preview #bp-preview-label {
     position: relative;
-    z-index: 1;
-    font-size: 0.75rem;
+    z-index: 2;
+    font-size: 0.72rem;
     font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.88);
+    color: #1a2b4a !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    text-shadow: none;
 }
 .bp-summary {
     display: grid;
@@ -1369,35 +1430,24 @@ a.card:hover {
     margin: 6px 0 0;
     line-height: 1.35;
 }
-.bp-breakdown-wrap {
+.bp-breakdown-cta {
     border: 1px solid #e2e8f0;
     border-radius: 10px;
-    padding: 8px 12px;
+    padding: 12px 14px;
     margin-bottom: 10px;
     background: var(--panel-soft);
+    text-align: center;
 }
-.bp-breakdown-wrap summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
+.bp-breakdown-cta p {
+    font-size: 0.88rem;
     color: var(--navy);
-}
-.bp-breakdown {
-    width: 100%;
-    margin-top: 8px;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-}
-.bp-breakdown td {
-    padding: 5px 0;
-    border-bottom: 1px solid #e8eef5;
-    color: var(--text);
-}
-.bp-breakdown .bp-num {
-    text-align: right;
     font-weight: 600;
-    color: var(--navy);
-    white-space: nowrap;
+    margin: 0 0 10px;
+    line-height: 1.35;
+}
+.bp-breakdown-cta .btn {
+    font-size: 0.88rem;
+    padding: 10px 14px;
 }
 .bp-disclaimer {
     font-size: 0.75rem;
@@ -1415,25 +1465,6 @@ a.card:hover {
 .bp-cta-row .btn {
     text-align: center;
     width: 100%;
-}
-.bp-mini-form {
-    border-top: 1px solid #e2e8f0;
-    padding-top: 12px;
-    margin-top: 2px;
-    gap: 8px;
-}
-.bp-mini-form h3 {
-    font-size: 0.92rem;
-    color: var(--navy);
-    margin: 0 0 6px;
-}
-.bp-mini-form label {
-    font-size: 0.7rem;
-}
-.bp-mini-form input,
-.bp-mini-form textarea {
-    padding: 10px 12px;
-    font-size: 0.9rem;
 }
 .bp-map {
     min-height: 280px;
