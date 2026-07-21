@@ -1096,68 +1096,78 @@ a.card:hover {
 
 /* ── Build & price page ── */
 .bp-page { padding-bottom: 72px; }
-.bp-hero .lede { max-width: 52rem; }
+.bp-section { padding-top: 20px; }
+.bp-hero { padding-bottom: 8px; }
+.bp-hero .lede { max-width: 52rem; margin-bottom: 0; }
 .bp-layout {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr) minmax(0, 0.95fr);
+    gap: 16px;
     align-items: start;
 }
+.bp-col { min-width: 0; }
 .bp-card {
     background: var(--white);
     border: 1px solid #e2e8f0;
     border-radius: var(--radius);
-    padding: 22px;
-    margin-bottom: 18px;
+    padding: 16px;
+    margin-bottom: 0;
     box-shadow: var(--shadow);
 }
+.bp-card-compact { padding: 14px; }
+.bp-price-card {
+    position: sticky;
+    top: 72px;
+}
 .bp-card-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--navy);
-    margin: 0 0 6px;
+    margin: 0 0 4px;
 }
 .bp-card-sub {
     color: var(--muted);
-    font-size: 0.92rem;
-    margin: 0 0 16px;
+    font-size: 0.82rem;
+    margin: 0 0 10px;
 }
 .bp-label {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
-.bp-block { margin-bottom: 20px; }
+.bp-block { margin-bottom: 12px; }
+.bp-block:last-of-type { margin-bottom: 10px; }
 .bp-area-field input {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1px solid #c9d4e0;
-    border-radius: 10px;
+    border-radius: 8px;
     color: var(--navy);
 }
 .bp-toggles {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 .bp-toggle {
     flex: 1 1 auto;
-    min-width: 90px;
-    padding: 12px 10px;
+    min-width: 0;
+    padding: 8px 6px;
     border: 1px solid #d8e0ea;
-    border-radius: 10px;
+    border-radius: 8px;
     background: var(--panel-soft);
     font-family: inherit;
-    font-size: 0.88rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--muted);
     cursor: pointer;
     transition: 0.15s;
+    line-height: 1.2;
 }
 .bp-toggle:hover { border-color: var(--accent); color: var(--navy); }
 .bp-toggle.is-active {
@@ -1169,13 +1179,14 @@ a.card:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    min-width: 100px;
+    gap: 4px;
+    min-width: 72px;
+    padding: 8px 4px;
 }
 .bp-profile-icon {
     display: block;
-    width: 56px;
-    height: 18px;
+    width: 42px;
+    height: 12px;
     background: repeating-linear-gradient(
         90deg,
         currentColor 0 3px,
@@ -1207,8 +1218,8 @@ a.card:hover {
 }
 .bp-colours {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
 }
 .bp-swatch {
     width: 100%;
@@ -1222,38 +1233,38 @@ a.card:hover {
 .bp-swatch:hover { transform: scale(1.08); }
 .bp-swatch.is-active {
     border-color: var(--accent);
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent);
-    transform: scale(1.1);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--accent);
+    transform: scale(1.08);
 }
-.bp-swatch-note {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin: 10px 0 0;
+.bp-addons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
 }
 .bp-check {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.92rem;
+    gap: 6px;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--navy);
-    margin-bottom: 8px;
+    margin: 0;
     cursor: pointer;
 }
 .bp-preview {
     position: relative;
-    height: 120px;
-    border-radius: 12px;
+    height: 72px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding: 12px;
+    padding: 8px;
     border: 1px solid #e2e8f0;
 }
 .bp-preview-roof {
     position: absolute;
-    inset: 18% 8% 28%;
+    inset: 16% 10% 30%;
     background: inherit;
     filter: brightness(0.95);
     clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0 100%, 0 40%);
@@ -1262,65 +1273,103 @@ a.card:hover {
 .bp-preview #bp-preview-label {
     position: relative;
     z-index: 1;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 .bp-summary {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px 14px;
-    margin-bottom: 18px;
+    gap: 8px 12px;
+    margin-bottom: 12px;
 }
 .bp-summary div {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    font-size: 0.82rem;
+    gap: 1px;
+    font-size: 0.78rem;
 }
+.bp-summary-wide { grid-column: 1 / -1; }
 .bp-summary span { color: var(--muted); }
-.bp-summary strong { color: var(--navy); font-size: 0.95rem; }
+.bp-summary strong { color: var(--navy); font-size: 0.9rem; }
+
+/* Estimate box — high contrast on navy */
 .bp-price-hero {
-    background: var(--navy);
+    background: linear-gradient(160deg, #152#if 0%, #0f1a2e 55%, #1a2b4a 100%);
+    background: linear-gradient(160deg, #163056 0%, #0f1a2e 60%, #1a2b4a 100%);
     color: #fff;
     border-radius: 12px;
-    padding: 18px 20px;
-    margin-bottom: 14px;
+    padding: 16px 16px 14px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(125, 211, 252, 0.18);
 }
-.bp-price-hero .bp-label { color: #7dd3fc; margin-bottom: 4px; }
+.bp-price-kicker {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7dd3fc;
+    margin-bottom: 4px;
+}
 .bp-total {
-    font-size: clamp(1.8rem, 4vw, 2.35rem);
+    font-size: clamp(1.7rem, 2.6vw, 2.15rem);
     font-weight: 800;
-    margin: 0 0 4px;
+    margin: 0 0 6px;
     letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
 }
-.bp-range-line, .bp-per, .bp-area-line {
-    font-size: 0.88rem;
-    color: #b6c5d6;
-    margin: 2px 0;
+.bp-range-line {
+    font-size: 0.9rem;
+    color: #d7e3f2;
+    margin: 0 0 10px;
+    font-weight: 500;
 }
-.bp-range-line strong { color: #fff; }
+.bp-range-line strong {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1rem;
+}
+.bp-price-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+}
+.bp-price-meta span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0f1a2e;
+    background: #e8f4fc;
+    border: 1px solid #9fd4f0;
+    border-radius: 999px;
+    padding: 5px 10px;
+    line-height: 1.2;
+}
 .bp-breakdown-wrap {
     border: 1px solid #e2e8f0;
     border-radius: 10px;
-    padding: 10px 14px;
-    margin-bottom: 12px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
     background: var(--panel-soft);
 }
 .bp-breakdown-wrap summary {
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--navy);
 }
 .bp-breakdown {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 8px;
     border-collapse: collapse;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
 }
 .bp-breakdown td {
-    padding: 6px 0;
+    padding: 5px 0;
     border-bottom: 1px solid #e8eef5;
     color: var(--text);
 }
@@ -1331,39 +1380,75 @@ a.card:hover {
     white-space: nowrap;
 }
 .bp-disclaimer {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--muted);
-    margin: 0 0 14px;
-    line-height: 1.45;
+    margin: 0 0 10px;
+    line-height: 1.4;
 }
 .bp-cta-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 18px;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.bp-cta-row .cta,
+.bp-cta-row .btn {
+    text-align: center;
+    width: 100%;
 }
 .bp-mini-form {
     border-top: 1px solid #e2e8f0;
-    padding-top: 16px;
-    margin-top: 4px;
+    padding-top: 12px;
+    margin-top: 2px;
+    gap: 8px;
 }
 .bp-mini-form h3 {
-    font-size: 1rem;
+    font-size: 0.92rem;
     color: var(--navy);
-    margin: 0 0 10px;
+    margin: 0 0 6px;
 }
-.bp-map { min-height: 320px; height: 42vh; }
-.bp-mm-toolbar { margin-top: 14px; }
-.bp-map-result { margin-top: 14px; }
+.bp-mini-form label {
+    font-size: 0.7rem;
+}
+.bp-mini-form input,
+.bp-mini-form textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+.bp-map {
+    min-height: 280px;
+    height: min(38vh, 360px);
+}
+.bp-mm-toolbar {
+    margin-top: 10px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.bp-mm-toolbar .mm-search-row .cta {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+}
+.bp-map-result { margin-top: 10px; padding: 12px; }
+.mm-hint-tight { margin-top: -4px; }
+.mm-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
 .bp-sticky {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 60;
-    background: rgba(15, 26, 46, 0.96);
+    background: rgba(15, 26, 46, 0.97);
     color: #fff;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(125, 211, 252, 0.2);
     backdrop-filter: blur(8px);
 }
 .bp-sticky-inner {
@@ -1385,8 +1470,13 @@ a.card:hover {
 .bp-sticky strong {
     font-size: 1.25rem;
     margin-right: 8px;
+    color: #fff;
 }
-.bp-sticky-meta { color: #9fb0c3; font-size: 0.85rem; }
+.bp-sticky-meta {
+    color: #d7e3f2;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
 .nav-pricing {
     background: var(--accent) !important;
     color: #fff !important;
@@ -1402,11 +1492,22 @@ a.card:hover {
     padding: 6px 12px !important;
     font-size: 0.85rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+    .bp-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+    .bp-col-price {
+        grid-column: 1 / -1;
+    }
+    .bp-price-card { position: static; }
+}
+@media (max-width: 780px) {
     .bp-layout { grid-template-columns: 1fr; }
-    .bp-colours { grid-template-columns: repeat(6, 1fr); }
+    .bp-col-price { grid-column: auto; }
+    .bp-colours { grid-template-columns: repeat(8, 1fr); }
+    .bp-map { height: 46vh; min-height: 260px; }
 }
 @media (max-width: 520px) {
-    .bp-colours { grid-template-columns: repeat(5, 1fr); }
-    .bp-summary { grid-template-columns: 1fr; }
+    .bp-colours { grid-template-columns: repeat(6, 1fr); }
+    .bp-summary { grid-template-columns: 1fr 1fr; }
 }

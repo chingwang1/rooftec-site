@@ -168,7 +168,7 @@
     setText("bp-total", money(p.total));
     setText("bp-range", money(p.low) + " – " + money(p.high));
     setText("bp-per-m2", money(p.perM2) + " / m² package");
-    setText("bp-area-display", fmt(p.m2, 1) + " m²");
+    setText("bp-area-display", "Based on " + fmt(p.m2, 1) + " m²");
 
     // Breakdown
     var rows = [
