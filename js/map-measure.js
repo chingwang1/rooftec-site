@@ -125,7 +125,7 @@
     var cost = $("mm-to-cost");
     var sheets = $("mm-to-sheets");
     var screws = $("mm-to-screws");
-    if (cost) cost.href = "roof-cost-estimator.html?area=" + q;
+    if (cost) cost.href = "../pricing.html?area=" + q;
     if (sheets) sheets.href = "roof-sheet-calculator.html?area=" + q;
     if (screws) screws.href = "screw-fastener-calculator.html?area=" + q;
   }
