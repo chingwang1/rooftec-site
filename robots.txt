@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chingwang1.github.io/rooftec-site/sitemap.xml
+Sitemap: https://brisbaneroofingservice.com/sitemap.xml

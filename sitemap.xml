@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chingwang1.github.io/rooftec-site/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/about.html</loc><priority>0.6</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/contact.html</loc><priority>0.8</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/colorbond-roofing.html</loc><priority>0.9</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/roof-repairs.html</loc><priority>0.9</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/roof-replacement.html</loc><priority>0.9</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/gutters-and-box-gutters.html</loc><priority>0.85</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/wall-cladding.html</loc><priority>0.85</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/services/roof-penetrations.html</loc><priority>0.85</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/areas/brisbane.html</loc><priority>0.9</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/areas/sunshine-coast.html</loc><priority>0.9</priority></url>
-  <url><loc>https://chingwang1.github.io/rooftec-site/areas/gold-coast-tweed.html</loc><priority>0.85</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/contact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/colorbond-roofing.html</loc><priority>0.9</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/roof-repairs.html</loc><priority>0.9</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/roof-replacement.html</loc><priority>0.9</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/gutters-and-box-gutters.html</loc><priority>0.85</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/wall-cladding.html</loc><priority>0.85</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/services/roof-penetrations.html</loc><priority>0.85</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/areas/brisbane.html</loc><priority>0.9</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/areas/sunshine-coast.html</loc><priority>0.9</priority></url>
+  <url><loc>https://brisbaneroofingservice.com/areas/gold-coast-tweed.html</loc><priority>0.85</priority></url>
 </urlset>
