@@ -252,6 +252,38 @@
     if (btn) btn.addEventListener("click", fn);
   }
 
+  /** Prefill area fields from ?area=123 (e.g. map measure tool). */
+  function applyQueryParams() {
+    var params = new URLSearchParams(window.location.search);
+    var area = parseFloat(params.get("area"));
+    if (!(area > 0)) return;
+
+    // Prefer dedicated area inputs on this page
+    ["co-area", "sh-area", "sc-area", "gu-area"].forEach(function (id) {
+      var el = $(id);
+      if (el) {
+        el.value = String(Math.round(area * 10) / 10);
+        el.classList.add("calc-prefilled");
+      }
+    });
+
+    // Auto-run matching calculator when we have an area field
+    if ($("co-area") && $("co-calc")) calcCost();
+    else if ($("sh-area") && $("sh-calc")) calcSheets();
+    else if ($("sc-area") && $("sc-calc")) calcScrews();
+    else if ($("gu-area") && $("gu-calc")) calcGutter();
+
+    // Banner if present
+    var note = $("calc-from-map");
+    if (note) {
+      note.hidden = false;
+      note.textContent =
+        "Area pre-filled from map measure (" +
+        area.toLocaleString("en-AU", { maximumFractionDigits: 1 }) +
+        " m²). Adjust if needed.";
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     bind("ra-calc", calcRoofArea);
     bind("sh-calc", calcSheets);
@@ -276,5 +308,7 @@
         }
       });
     });
+
+    applyQueryParams();
   });
 })();

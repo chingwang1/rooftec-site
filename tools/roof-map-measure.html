@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measure Roof Area on Map | Satellite m² Tool SEQ | Roofing Brisbane</title>
+    <meta name="description" content="Find a property on the satellite map, draw the roof outline and get plan area in m² — then send it to the Colorbond cost estimator for Brisbane &amp; Sunshine Coast.">
+    <link rel="canonical" href="https://brisbaneroofingservice.com/tools/roof-map-measure.html">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#1a2b4a">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Roofing Brisbane">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:url" content="https://brisbaneroofingservice.com/tools/roof-map-measure.html">
+    <meta property="og:title" content="Measure Roof Area on Map | Satellite m² Tool SEQ | Roofing Brisbane">
+    <meta property="og:description" content="Find a property on the satellite map, draw the roof outline and get plan area in m² — then send it to the Colorbond cost estimator.">
+    <meta property="og:image" content="https://brisbaneroofingservice.com/assets/og-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Measure Roof Area on Map | Roofing Brisbane">
+    <meta name="twitter:description" content="Draw your roof on satellite imagery and get m² for cost estimates.">
+    <meta name="twitter:image" content="https://brisbaneroofingservice.com/assets/og-default.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Roof Map Measure Tool",
+      "url": "https://brisbaneroofingservice.com/tools/roof-map-measure.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+      "description": "Search a property, draw the roof on satellite imagery and estimate plan area in square metres for SEQ roofing quotes.",
+      "provider": { "@type": "RoofingContractor", "name": "Roofing Brisbane", "url": "https://brisbaneroofingservice.com/" }
+    }
+    </script>
+</head>
+<body>
+    <div class="sale-bar"><strong>STORM SEASON:</strong> Free roof inspection + up to 15% off repairs — Brisbane to Sunshine Coast · <a href="tel:+61411510699">0411 510 699</a></div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="../index.html">
+                <img src="../assets/logo.svg" alt="Roofing Brisbane" width="44" height="44" class="brand-mark">
+                <span class="brand-text">Roofing Brisbane</span>
+            </a>
+            <nav class="nav" aria-label="Main">
+                <details class="dropdown">
+                    <summary>Services</summary>
+                    <div class="dropdown-menu">
+                        <a href="../services/colorbond-roofing.html">Colorbond Roofing</a>
+                        <a href="../services/roof-repairs.html">Roof Repairs</a>
+                        <a href="../services/roof-replacement.html">Roof Replacement</a>
+                        <a href="../services/gutters-and-box-gutters.html">Gutters &amp; Box Gutters</a>
+                        <a href="../services/wall-cladding.html">Wall Cladding</a>
+                        <a href="../services/roof-penetrations.html">Roof Penetrations</a>
+                    </div>
+                </details>
+                <details class="dropdown">
+                    <summary>Areas</summary>
+                    <div class="dropdown-menu">
+                        <a href="../areas/brisbane.html">Brisbane</a>
+                        <a href="../areas/sunshine-coast.html">Sunshine Coast</a>
+                        <a href="../areas/gold-coast-tweed.html">Gold Coast &amp; Tweed</a>
+                    </div>
+                </details>
+                <a href="../tools/">Tools</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a class="nav-cta" href="tel:+61411510699">Call 0411 510 699</a>
+            </nav>
+        </div>
+    </header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> · <a href="./">Tools</a> · Map measure</p>
+            <h1>Measure Roof Area on Map</h1>
+            <p class="lede">Search an Australian address, zoom the <strong>satellite view</strong>, draw around the roof, and get a <strong>plan area in m²</strong>. Send that straight into the cost estimator for a SEQ ballpark quote.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="mm-toolbar">
+                <div class="mm-search-wrap" id="mm-search-wrap">
+                    <label for="mm-search">Property address</label>
+                    <div class="mm-search-row">
+                        <input id="mm-search" type="search" placeholder="e.g. 10 Queen St Brisbane QLD" autocomplete="street-address" enterkeyhint="search">
+                        <button type="button" class="cta" id="mm-search-btn">Find</button>
+                    </div>
+                    <div id="mm-suggestions" class="mm-suggestions" hidden></div>
+                </div>
+                <div class="mm-pitch-wrap">
+                    <label for="mm-pitch">Roof pitch (° ) — optional</label>
+                    <input id="mm-pitch" type="number" min="0" max="79" step="0.5" value="22.5" title="Used to convert plan area to surface area">
+                    <label class="check-row mm-check">
+                        <input type="checkbox" id="mm-use-surface" checked>
+                        Use pitch-adjusted surface m² for cost / sheets
+                    </label>
+                </div>
+            </div>
+
+            <p class="mm-hint" id="mm-status">Search for a property, then use the <strong>polygon</strong> tool (pentagon icon) on the left of the map to outline the roof.</p>
+            <p class="mm-hint">
+                <a id="mm-google-link" href="https://www.google.com/maps/@-27.4698,153.0251,17z" target="_blank" rel="noopener">Open area in Google Maps</a>
+                <span class="muted"> — useful to double-check the property; measure here for m².</span>
+            </p>
+
+            <div id="mm-map" class="mm-map" role="application" aria-label="Satellite map for measuring roof area"></div>
+
+            <div class="mm-actions">
+                <button type="button" class="btn btn-outline" id="mm-clear">Clear drawings</button>
+            </div>
+
+            <div class="calc-layout" style="margin-top:22px">
+                <div class="calc-result" id="mm-result" hidden>
+                    <h3>Measured area</h3>
+                    <dl>
+                        <dt>Plan area (from map)</dt><dd id="mm-plan">—</dd>
+                        <dt>Pitch factor</dt><dd id="mm-factor">—</dd>
+                        <dt>Surface area (pitch-adjusted)</dt><dd id="mm-surface">—</dd>
+                        <dt>Value for estimators</dt><dd id="mm-for-quote" class="calc-big">—</dd>
+                    </dl>
+                    <p class="calc-note">Satellite outlines measure <strong>horizontal plan area</strong>. Pitch converts that to approximate roof surface for sheeting. Trees, eaves, multi-level roofs and lean-tos need care — this is a planning estimate only.</p>
+                    <div class="mm-send-row">
+                        <a class="cta" id="mm-to-cost" href="roof-cost-estimator.html">Use in cost estimator →</a>
+                        <a class="btn btn-outline" id="mm-to-sheets" href="roof-sheet-calculator.html">Sheet calculator</a>
+                        <a class="btn btn-outline" id="mm-to-screws" href="screw-fastener-calculator.html">Screw calculator</a>
+                    </div>
+                </div>
+                <div class="side-card">
+                    <h3>How to measure</h3>
+                    <ol class="mm-steps">
+                        <li>Type the street address and pick a result (biased to SEQ).</li>
+                        <li>Zoom until you can see the roof sheets clearly.</li>
+                        <li>Click the <strong>polygon</strong> icon, then click corners of the roof. Finish by clicking the first point again.</li>
+                        <li>Add more polygons for detached garages or separate wings — areas add up.</li>
+                        <li>Optional: set pitch (e.g. 22.5°) so surface m² is used for costing.</li>
+                        <li>Send m² to the <a href="roof-cost-estimator.html">cost estimator</a>.</li>
+                    </ol>
+                    <p class="muted" style="margin-top:12px;font-size:0.88rem">Imagery: Esri / Maxar satellite tiles (similar quality to Google satellite for planning). Address search via Photon/OpenStreetMap data.</p>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <strong>Planning estimate only — not a quote or survey.</strong>
+                Map measurements can be off due to image angle, eaves, shadows and multi-pitch roofs.
+                For a firm Colorbond price in Brisbane, Sunshine Coast or northern Gold Coast / Tweed,
+                <a href="../contact.html">book a free inspection</a> or call <a href="tel:+61411510699">0411 510 699</a>.
+            </div>
+
+            <p style="margin-top:28px">
+                <a class="btn btn-outline" href="./">← All roofing tools</a>
+                &nbsp;
+                <a class="btn" href="../contact.html">Free inspection</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-band">
+        <h2>Map numbers close enough — want real ones?</h2>
+        <p>We measure on site, check structure and flashings, then price materials that suit SEQ weather.</p>
+        <a class="btn" href="tel:+61411510699">Call 0411 510 699</a>
+    </section>
+</main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <h4>Roofing Brisbane</h4>
+                <p>Colorbond metal roofing, cladding, gutters and repairs across South East Queensland — Brisbane to the Sunshine Coast and northern Gold Coast / Tweed corridor.</p>
+                <p style="margin-top:12px"><a href="tel:+61411510699">0411 510 699</a></p>
+                <p><a href="mailto:roofingbrisbane2027@gmail.com">roofingbrisbane2027@gmail.com</a></p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <a href="../services/colorbond-roofing.html">Colorbond Roofing</a>
+                <a href="../services/roof-repairs.html">Roof Repairs</a>
+                <a href="../services/roof-replacement.html">Roof Replacement</a>
+                <a href="../services/gutters-and-box-gutters.html">Gutters &amp; Box Gutters</a>
+                <a href="../services/wall-cladding.html">Wall Cladding</a>
+                <a href="../services/roof-penetrations.html">Roof Penetrations</a>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <a href="../tools/">Roofing tools &amp; calculators</a>
+                <a href="../tools/roof-map-measure.html">Map roof measure</a>
+                <a href="../areas/brisbane.html">Brisbane</a>
+                <a href="../contact.html">Free inspection</a>
+            </div>
+        </div>
+        <div class="legal">© 2026 Roofing Brisbane · Queensland Roofing Services · Serving SEQ residential &amp; light commercial</div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="../js/map-measure.js"></script>
+</body>
+</html>
