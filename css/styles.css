@@ -1295,7 +1295,6 @@ a.card:hover {
 
 /* Estimate box — high contrast on navy */
 .bp-price-hero {
-    background: linear-gradient(160deg, #152#if 0%, #0f1a2e 55%, #1a2b4a 100%);
     background: linear-gradient(160deg, #163056 0%, #0f1a2e 60%, #1a2b4a 100%);
     color: #fff;
     border-radius: 12px;
