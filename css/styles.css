@@ -1510,20 +1510,30 @@ a.card:hover {
 .bp-sticky .cta:hover {
     background: #f0f7ff;
 }
+/* Site header Pricing pill — light blue */
 .nav-pricing {
-    background: var(--accent) !important;
+    background: #4a8fc8 !important;
     color: #fff !important;
     padding: 8px 14px !important;
     border-radius: 8px !important;
     font-weight: 700 !important;
 }
 .nav-pricing:hover {
-    background: var(--accent-hover) !important;
+    background: #3d7eb8 !important;
     color: #fff !important;
 }
+/* Index landing menu: same shape as other links, light blue bold text */
 .landing-nav .nav-pricing {
-    padding: 6px 12px !important;
-    font-size: 0.85rem;
+    background: transparent !important;
+    color: #4a8fc8 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    font-size: inherit;
+}
+.landing-nav .nav-pricing:hover {
+    background: transparent !important;
+    color: #2f6fa8 !important;
 }
 @media (max-width: 1100px) {
     .bp-layout {
