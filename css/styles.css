@@ -66,7 +66,7 @@ ul { list-style: none; }
     color: var(--navy);
 }
 
-/* Icon-only marks — do NOT apply to .brand-lockup */
+/* Icon-only — do not apply 44px box to the full lockup */
 .brand img.brand-mark,
 img.brand-mark {
     height: 44px;
@@ -75,15 +75,12 @@ img.brand-mark {
     flex-shrink: 0;
 }
 
-/*
- * Full lockup: must override any generic .brand img rules.
- * Bug was .brand img { height:44px; width:44px } squashing the wide logo to a tiny square.
- */
+/* Full lockup — higher specificity so it is not crushed to 44x44 */
 .brand img.brand-lockup,
 a.brand img.brand-lockup {
-    height: 72px !important;
+    height: 70px !important;
     width: auto !important;
-    max-width: min(400px, 68vw) !important;
+    max-width: min(360px, 62vw) !important;
     border-radius: 0 !important;
     object-fit: contain !important;
     display: block;
@@ -92,8 +89,8 @@ a.brand img.brand-lockup {
 @media (min-width: 900px) {
     .brand img.brand-lockup,
     a.brand img.brand-lockup {
-        height: 80px !important;
-        max-width: 440px !important;
+        height: 78px !important;
+        max-width: 400px !important;
     }
 }
 
@@ -573,15 +570,7 @@ a.card:hover {
 .landing-logo .lt-services { color: #e8a86a; }
 .landing-form-logo-wrap {
     text-align: center;
-    margin: 0 0 10px;
-}
-/* Quote/booking mark — not the brand lockup (avoids double logo on landing) */
-.landing-form-icon {
-    display: inline-block;
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    margin: 0 0 12px;
 }
 .landing-form-logo {
     display: inline-block;
@@ -611,7 +600,11 @@ a.card:hover {
 }
 .landing-nav--light a:hover { color: #fff; }
 .landing-nav--light .nav-pricing {
-    background: #4a8fc8 !important;
+    background: #0cb40c !important;
+    color: #fff !important;
+}
+.landing-nav--light .nav-pricing:hover {
+    background: #099a09 !important;
     color: #fff !important;
 }
 /* Full-bleed hero stage (Wighty-style) */
@@ -1860,22 +1853,22 @@ a.card:hover {
 .bp-sticky .cta:hover {
     background: #f0f7ff;
 }
-/* Site header Pricing pill — light blue */
+/* Site header Pricing pill — brand green */
 .nav-pricing {
-    background: #4a8fc8 !important;
+    background: #0cb40c !important;
     color: #fff !important;
     padding: 8px 14px !important;
     border-radius: 8px !important;
     font-weight: 700 !important;
 }
 .nav-pricing:hover {
-    background: #3d7eb8 !important;
+    background: #099a09 !important;
     color: #fff !important;
 }
-/* Index landing menu: same shape as other links, light blue bold text */
+/* Index landing menu: same shape as other links, green bold text */
 .landing-nav .nav-pricing {
     background: transparent !important;
-    color: #4a8fc8 !important;
+    color: #0cb40c !important;
     padding: 0 !important;
     border-radius: 0 !important;
     font-weight: 700 !important;
@@ -1883,7 +1876,7 @@ a.card:hover {
 }
 .landing-nav .nav-pricing:hover {
     background: transparent !important;
-    color: #2f6fa8 !important;
+    color: #099a09 !important;
 }
 @media (max-width: 1100px) {
     .bp-layout {
