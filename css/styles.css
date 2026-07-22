@@ -75,20 +75,28 @@ ul { list-style: none; }
     flex-shrink: 0;
 }
 
-/* Full lockup in site headers */
+/* Full lockup in site headers — large enough to read */
 .brand-lockup {
-    height: 64px;
+    height: 88px;
     width: auto;
-    max-width: min(340px, 58vw);
+    max-width: min(480px, 70vw);
     border-radius: 0 !important;
     object-fit: contain;
     display: block;
 }
 @media (min-width: 900px) {
     .brand-lockup {
-        height: 72px;
-        max-width: 380px;
+        height: 100px;
+        max-width: 520px;
     }
+}
+.header-inner {
+    align-items: center;
+}
+.site-header .header-inner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 88px;
 }
 
 .brand-text {
@@ -525,28 +533,32 @@ a.card:hover {
     padding: 18px 20px 6px;
 }
 .landing-logo {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: -0.02em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    text-shadow:
-        0 1px 0 rgba(15, 40, 70, 0.08),
-        0 2px 6px rgba(15, 40, 70, 0.14),
-        0 4px 14px rgba(15, 40, 70, 0.12);
 }
+/* Stacked brand lockup for photo hero (matches logo system font) */
+.landing-logo-img {
+    display: block;
+    width: min(420px, 88vw);
+    height: auto;
+    max-height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.45));
+}
+@media (min-width: 900px) {
+    .landing-logo-img {
+        width: min(480px, 50vw);
+        max-height: 120px;
+    }
+}
+/* legacy text wordmark helpers (unused on main landing) */
 .landing-logo-mark {
     width: 58px;
     height: 58px;
     object-fit: contain;
     flex-shrink: 0;
-    /* no heavy filters — keep shield edges clean */
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
 }
 .landing-logo-text {
     display: inline-flex;
@@ -554,29 +566,13 @@ a.card:hover {
     align-items: baseline;
     gap: 0.35em;
     line-height: 1.1;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
-.landing-logo .lt-brisbane {
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-.landing-logo .lt-services {
-    color: #e8a86a;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-.landing-logo--light {
-    color: #fff;
-    text-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.35),
-        0 4px 16px rgba(0, 0, 0, 0.25);
-}
-.landing-logo--light .lt-brisbane {
-    color: #fff;
-}
-.landing-logo--light .lt-services {
-    color: #e8a86a;
-}
+.landing-logo .lt-brisbane { color: #fff; }
+.landing-logo .lt-services { color: #e8a86a; }
 .landing-form-logo-wrap {
     text-align: center;
     margin: 0 0 12px;
