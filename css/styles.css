@@ -552,12 +552,6 @@ a.card:hover {
     background: #4a8fc8 !important;
     color: #fff !important;
 }
-.landing-nav-phone {
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    padding: 6px 12px !important;
-    border-radius: 8px;
-}
-
 /* Full-bleed hero stage (Wighty-style) */
 .landing-stage {
     position: relative;
@@ -667,15 +661,15 @@ a.card:hover {
 }
 .landing-scroll-link:hover { color: #fff; text-decoration: underline; }
 
-/* Right form card — dark, stands out on photo */
+/* Right form card — light blue (same family as pricing estimate panel) */
 .landing-form-card {
-    background: rgba(12, 20, 36, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(165deg, #5b9fd4 0%, #4a8fc8 45%, #3d7eb8 100%);
+    border: 1px solid #7eb6e0;
     border-radius: 16px;
     padding: 26px 24px 22px;
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
+        0 20px 50px rgba(30, 80, 130, 0.4),
+        0 8px 22px rgba(45, 100, 150, 0.22);
     color: #fff;
 }
 .landing-form-brand {
@@ -685,21 +679,22 @@ a.card:hover {
     text-align: center;
     margin-bottom: 6px;
     color: #fff;
+    text-shadow: 0 1px 3px rgba(15, 40, 70, 0.25);
 }
-.landing-form-brand span { color: #f0b27a; }
+.landing-form-brand span { color: #fff4d6; }
 .landing-form-card h2 {
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: center;
-    color: #7dd3fc;
+    color: #eaf5ff;
     margin: 0 0 6px;
 }
 .landing-form-sub {
     text-align: center;
     font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #f0f7ff;
     margin: 0 0 16px;
 }
 .landing-enquiry {
@@ -713,24 +708,25 @@ a.card:hover {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.65);
+    color: #eef6ff;
 }
 .landing-enquiry input,
 .landing-enquiry textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 8px;
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--navy);
     background: #fff;
+    box-shadow: 0 1px 4px rgba(20, 50, 80, 0.1);
 }
 .landing-enquiry input:focus,
 .landing-enquiry textarea:focus {
     outline: none;
-    border-color: #4a8fc8;
-    box-shadow: 0 0 0 3px rgba(74, 143, 200, 0.25);
+    border-color: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 .landing-enquiry textarea {
     min-height: 88px;
@@ -738,7 +734,7 @@ a.card:hover {
 }
 .landing-form-note {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: #e8f4fc;
     margin: 2px 0 4px;
     line-height: 1.4;
 }
@@ -757,7 +753,7 @@ a.card:hover {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(201, 146, 58, 0.35);
+    box-shadow: 0 4px 14px rgba(201, 146, 58, 0.4);
     transition: transform 0.15s, filter 0.15s;
 }
 .landing-form-submit:hover {
@@ -767,7 +763,7 @@ a.card:hover {
 .landing-form-guarantee {
     margin: 14px 0 0;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: #eef6ff;
     text-align: center;
     line-height: 1.4;
 }
