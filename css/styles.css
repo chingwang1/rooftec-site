@@ -557,17 +557,19 @@ a.card:hover {
     position: relative;
     min-height: min(92vh, 820px);
     background-color: #1a2b4a;
-    background-image: var(--hero-bg);
+    /* Path relative to this CSS file (css/styles.css → assets/) */
+    background-image: url("../assets/carousel-colorbond-house.jpg");
     background-size: cover;
-    background-position: center 40%;
+    background-position: center 35%;
     background-repeat: no-repeat;
 }
 .landing-stage-overlay {
     position: absolute;
     inset: 0;
+    /* Lighter wash so the house/roof photo reads clearly */
     background:
-        linear-gradient(105deg, rgba(12, 22, 40, 0.78) 0%, rgba(12, 22, 40, 0.55) 48%, rgba(12, 22, 40, 0.62) 100%),
-        linear-gradient(180deg, rgba(8, 14, 28, 0.35) 0%, rgba(8, 14, 28, 0.15) 40%, rgba(8, 14, 28, 0.55) 100%);
+        linear-gradient(105deg, rgba(12, 22, 40, 0.55) 0%, rgba(12, 22, 40, 0.28) 50%, rgba(12, 22, 40, 0.45) 100%),
+        linear-gradient(180deg, rgba(8, 14, 28, 0.25) 0%, rgba(8, 14, 28, 0.08) 45%, rgba(8, 14, 28, 0.4) 100%);
     pointer-events: none;
 }
 .landing-stage-inner {
@@ -661,15 +663,18 @@ a.card:hover {
 }
 .landing-scroll-link:hover { color: #fff; text-decoration: underline; }
 
-/* Right form card — light blue (same family as pricing estimate panel) */
+/* Right form card — dark navy with light-blue gradient accent */
 .landing-form-card {
-    background: linear-gradient(165deg, #5b9fd4 0%, #4a8fc8 45%, #3d7eb8 100%);
-    border: 1px solid #7eb6e0;
+    background:
+        linear-gradient(160deg, rgba(74, 143, 200, 0.28) 0%, rgba(74, 143, 200, 0.06) 42%, transparent 70%),
+        linear-gradient(165deg, #152a48 0%, #0f1a2e 55%, #0c1628 100%);
+    border: 1px solid rgba(125, 211, 252, 0.22);
     border-radius: 16px;
     padding: 26px 24px 22px;
     box-shadow:
-        0 20px 50px rgba(30, 80, 130, 0.4),
-        0 8px 22px rgba(45, 100, 150, 0.22);
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 1px 0 rgba(125, 211, 252, 0.12);
     color: #fff;
 }
 .landing-form-brand {
@@ -679,22 +684,21 @@ a.card:hover {
     text-align: center;
     margin-bottom: 6px;
     color: #fff;
-    text-shadow: 0 1px 3px rgba(15, 40, 70, 0.25);
 }
-.landing-form-brand span { color: #fff4d6; }
+.landing-form-brand span { color: #f0b27a; }
 .landing-form-card h2 {
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: center;
-    color: #eaf5ff;
+    color: #7dd3fc;
     margin: 0 0 6px;
 }
 .landing-form-sub {
     text-align: center;
     font-size: 0.88rem;
-    color: #f0f7ff;
+    color: rgba(255, 255, 255, 0.72);
     margin: 0 0 16px;
 }
 .landing-enquiry {
@@ -708,25 +712,24 @@ a.card:hover {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #eef6ff;
+    color: rgba(255, 255, 255, 0.68);
 }
 .landing-enquiry input,
 .landing-enquiry textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 8px;
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--navy);
     background: #fff;
-    box-shadow: 0 1px 4px rgba(20, 50, 80, 0.1);
 }
 .landing-enquiry input:focus,
 .landing-enquiry textarea:focus {
     outline: none;
-    border-color: #fff;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+    border-color: #4a8fc8;
+    box-shadow: 0 0 0 3px rgba(74, 143, 200, 0.3);
 }
 .landing-enquiry textarea {
     min-height: 88px;
@@ -734,7 +737,7 @@ a.card:hover {
 }
 .landing-form-note {
     font-size: 0.75rem;
-    color: #e8f4fc;
+    color: rgba(255, 255, 255, 0.55);
     margin: 2px 0 4px;
     line-height: 1.4;
 }
@@ -753,7 +756,7 @@ a.card:hover {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(201, 146, 58, 0.4);
+    box-shadow: 0 4px 14px rgba(201, 146, 58, 0.35);
     transition: transform 0.15s, filter 0.15s;
 }
 .landing-form-submit:hover {
@@ -763,7 +766,7 @@ a.card:hover {
 .landing-form-guarantee {
     margin: 14px 0 0;
     font-size: 0.8rem;
-    color: #eef6ff;
+    color: rgba(255, 255, 255, 0.65);
     text-align: center;
     line-height: 1.4;
 }
