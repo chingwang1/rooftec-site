@@ -573,7 +573,15 @@ a.card:hover {
 .landing-logo .lt-services { color: #e8a86a; }
 .landing-form-logo-wrap {
     text-align: center;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
+}
+/* Quote/booking mark — not the brand lockup (avoids double logo on landing) */
+.landing-form-icon {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 .landing-form-logo {
     display: inline-block;
