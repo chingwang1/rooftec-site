@@ -77,12 +77,18 @@ ul { list-style: none; }
 
 /* Full lockup in site headers */
 .brand-lockup {
-    height: 52px;
+    height: 64px;
     width: auto;
-    max-width: min(280px, 48vw);
+    max-width: min(340px, 58vw);
     border-radius: 0 !important;
     object-fit: contain;
     display: block;
+}
+@media (min-width: 900px) {
+    .brand-lockup {
+        height: 72px;
+        max-width: 380px;
+    }
 }
 
 .brand-text {
@@ -535,11 +541,12 @@ a.card:hover {
         0 4px 14px rgba(15, 40, 70, 0.12);
 }
 .landing-logo-mark {
-    width: 52px;
-    height: 52px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
     flex-shrink: 0;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+    /* no heavy filters — keep shield edges clean */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
 }
 .landing-logo-text {
     display: inline-flex;
