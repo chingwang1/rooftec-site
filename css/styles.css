@@ -66,27 +66,34 @@ ul { list-style: none; }
     color: var(--navy);
 }
 
-.brand img,
-.brand-mark {
+/* Icon-only marks — do NOT apply to .brand-lockup */
+.brand img.brand-mark,
+img.brand-mark {
     height: 44px;
     width: 44px;
     border-radius: 10px;
     flex-shrink: 0;
 }
 
-/* Full lockup in site headers */
-.brand-lockup {
-    height: 70px;
-    width: auto;
-    max-width: min(360px, 62vw);
+/*
+ * Full lockup: must override any generic .brand img rules.
+ * Bug was .brand img { height:44px; width:44px } squashing the wide logo to a tiny square.
+ */
+.brand img.brand-lockup,
+a.brand img.brand-lockup {
+    height: 72px !important;
+    width: auto !important;
+    max-width: min(400px, 68vw) !important;
     border-radius: 0 !important;
-    object-fit: contain;
+    object-fit: contain !important;
     display: block;
+    flex-shrink: 0;
 }
 @media (min-width: 900px) {
-    .brand-lockup {
-        height: 178px;
-        max-width: 400px;
+    .brand img.brand-lockup,
+    a.brand img.brand-lockup {
+        height: 80px !important;
+        max-width: 440px !important;
     }
 }
 
