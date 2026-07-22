@@ -83,82 +83,59 @@
 </script>
 </head>
 <body>
-    <!-- TOP: Wighty-style hero — form card on right, copy + stars on left, full-bleed BG -->
-    <div class="landing-top landing-top--split">
+    <!-- TOP: matches original roofing-landing.html -->
+    <div class="landing-top">
         <div class="sale-bar">
             <strong>STORM SEASON OFFER:</strong> Free roof inspection + up to 15% off repairs — Brisbane to Sunshine Coast
         </div>
 
-        <div class="landing-stage" style="--hero-bg: url('assets/carousel-colorbond-house.jpg')">
-            <div class="landing-stage-overlay" aria-hidden="true"></div>
-
-            <div class="landing-stage-inner">
-                <div class="landing-logo-wrap">
-                    <a class="landing-logo landing-logo--light" href="index.html">Brisbane <span>Roofing Services</span></a>
-                </div>
-                <nav class="landing-nav landing-nav--light" aria-label="Site">
-                    <a href="services/colorbond-roofing.html">Services</a>
-                    <a href="areas/brisbane.html">Brisbane</a>
-                    <a href="areas/sunshine-coast.html">Sunshine Coast</a>
-                    <a href="tools/">Tools</a>
-                    <a class="nav-pricing" href="pricing.html">Pricing</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                    <a class="landing-nav-phone" href="tel:+61411510699">0411 510 699</a>
-                </nav>
-
-                <div class="landing-hero landing-hero--split">
-                    <section class="landing-copy">
-                        <div class="rating rating--light">
-                            <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-                            <span class="rating-text"><strong>4.9/5</strong> · Based on 1,240+ SEQ homeowners</span>
-                        </div>
-                        <h1>Expert Colorbond Roofing &amp; Cladding Across SEQ</h1>
-                        <p class="landing-lede">Metal roofing, cladding and drainage specialists from Brisbane to the Sunshine Coast — built for Queensland weather, not cheap flashings that fail in the first storm.</p>
-                        <ul class="landing-bullets">
-                            <li>Colorbond roofing &amp; wall cladding — new installs and replacements</li>
-                            <li>Gutters, box gutters &amp; penetrations sealed to Australian standards</li>
-                            <li>Fast repair crews — Brisbane through to the Sunshine Coast</li>
-                            <li>QBCC-licensed · fully insured · 10-year workmanship warranty</li>
-                        </ul>
-                        <p class="landing-cta-row">
-                            <a class="btn landing-btn-ghost" href="tel:+61411510699">Call 0411 510 699</a>
-                            <a class="landing-scroll-link" href="#services">See services ▾</a>
-                        </p>
-                    </section>
-
-                    <aside class="landing-form-card" aria-label="Get a free quote">
-                        <div class="landing-form-brand">Brisbane <span>Roofing</span></div>
-                        <h2>Get a free quote</h2>
-                        <p class="landing-form-sub">Tell us about your roof — free inspection, no obligation.</p>
-                        <form class="enquiry-form landing-enquiry js-contact-api" action="#" method="POST">
-                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                            <label for="hero-name">Full name</label>
-                            <input type="text" id="hero-name" name="name" placeholder="John Smith" required autocomplete="name">
-                            <label for="hero-phone">Phone</label>
-                            <input type="tel" id="hero-phone" name="phone" placeholder="0411 000 000" required autocomplete="tel">
-                            <label for="hero-email">Email</label>
-                            <input type="email" id="hero-email" name="email" placeholder="you@email.com" required autocomplete="email">
-                            <label for="hero-message">Short message about your needs</label>
-                            <textarea id="hero-message" name="message" placeholder="Suburb, roof type, leak / new install / cladding…" required></textarea>
-                            <p class="landing-form-note">Your message goes straight to our team — we respect your privacy.</p>
-                            <button type="submit" class="landing-form-submit">Send</button>
-                        </form>
-                        <p class="landing-form-guarantee"><strong>10-year workmanship guarantee.</strong> Not happy with the finish? We’ll make it right.</p>
-                    </aside>
-                </div>
-            </div>
+        <div class="landing-logo-wrap">
+            <a class="landing-logo" href="index.html">Brisbane <span>Roofing Services</span></a>
         </div>
-    </div>
+        <nav class="landing-nav" aria-label="Site">
+            <a href="services/colorbond-roofing.html">Services</a>
+            <a href="areas/brisbane.html">Brisbane</a>
+            <a href="areas/sunshine-coast.html">Sunshine Coast</a>
+            <a href="tools/">Tools</a>
+            <a class="nav-pricing" href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:+61411510699">0411 510 699</a>
+        </nav>
 
-    <!-- BELOW: existing multi-page SEO sections -->
-    <main>
-        <section class="section" id="gallery">
-            <div class="container">
-                <h2>Recent metal roofing work</h2>
-                <p class="muted">Colorbond installs, gutters and finishes across South East Queensland.</p>
-                <div class="visual carousel gallery-carousel" id="heroCarousel" aria-label="Project gallery">
+        <div class="landing-hero">
+            <section class="panel">
+                <h1>Colorbond Roofing &amp; Cladding Done Right Across SEQ</h1>
+                <p class="sub">Specialists in metal roofing, cladding and drainage from Brisbane to the Sunshine Coast:</p>
+                <ul class="problem-list">
+                    <li>
+                        <span class="icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 17l9-10 9 10H3z"/><path d="M8 21h8"/></svg>
+                        </span>
+                        Colorbond metal roofing &amp; wall cladding
+                    </li>
+                    <li>
+                        <span class="icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M4 14h16M4 8h16"/></svg>
+                        </span>
+                        Gutters &amp; box gutters — supply, install, replace
+                    </li>
+                    <li>
+                        <span class="icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+                        </span>
+                        Penetrations, flashings &amp; weatherproof details
+                    </li>
+                    <li>
+                        <span class="icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6m0 0c-3 2-6 5-6 9a6 6 0 0012 0c0-4-3-7-6-9z"/></svg>
+                        </span>
+                        Repairs — leaks, rust, storm &amp; maintenance work
+                    </li>
+                </ul>
+                <div class="visual carousel" id="heroCarousel" aria-label="Project gallery">
                     <div class="carousel-track" id="carouselTrack">
+                        <!-- Local assets only — external hotlinks were failing -->
                         <div class="carousel-slide active">
                             <img src="assets/colorbond-roofing-Tweed-Heads-1280w.jpeg" alt="Colorbond metal roofing on a residential home" width="1280" height="720">
                         </div>
@@ -194,9 +171,40 @@
                     </div>
                     <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
                 </div>
-            </div>
-        </section>
+            </section>
 
+            <section class="offer-col">
+                <div class="rating">
+                    <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+                    <span class="rating-text"><strong>4.9/5</strong> · Based on 1,240+ SEQ homeowners</span>
+                </div>
+                <h2>Expert Metal Roofing &amp; Cladding — Built for Queensland Weather</h2>
+                <p class="hook">Without cheap materials, rushed flashings, or gutters that fail in the first storm.</p>
+                <ul class="benefit-list">
+                    <li>Colorbond roofing &amp; wall cladding — new installs and replacements</li>
+                    <li>Gutters, box gutters &amp; penetrations sealed to Australian standards</li>
+                    <li>Fast repair crews — Brisbane through to the Sunshine Coast</li>
+                    <li>QBCC-licensed · fully insured · 10-year workmanship warranty</li>
+                </ul>
+                <a class="cta" href="contact.html">BOOK FREE INSPECTION &amp; SAVE UP TO 15%</a>
+                <form class="enquiry-form js-contact-api" action="#" method="POST">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Describe your roof, cladding, gutters or repair job…" required></textarea>
+                    <button type="submit" class="cta-secondary">Send Enquiry</button>
+                </form>
+                <div class="guarantee">
+                    <strong>10-year workmanship guarantee.</strong> Not happy with the finish? We'll make it right — or you don't pay for the fix.
+                </div>
+                <a class="secondary-link" href="#services">How does our inspection process work? ▾</a>
+            </section>
+        </div>
+    </div>
+
+    <!-- BELOW: existing multi-page SEO sections -->
+    <main>
         <section class="section alt" id="services">
             <div class="container">
                 <h2>Roofing services we deliver for</h2>
@@ -291,6 +299,7 @@
                 <a href="areas/gold-coast-tweed.html">Gold Coast &amp; Tweed</a>
                 <a href="pricing.html">Build &amp; price</a>
                 <a href="contact.html">Free inspection</a>
+                <a href="pricing.html">Build &amp; price</a>
                 <a href="tools/">Roofing tools &amp; calculators</a>
             </div>
         </div>
