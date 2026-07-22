@@ -81,6 +81,10 @@ ul { list-style: none; }
     font-weight: 700;
     line-height: 1.15;
     max-width: 11ch;
+    text-shadow:
+        0 1px 0 rgba(15, 40, 70, 0.08),
+        0 2px 6px rgba(15, 40, 70, 0.14),
+        0 4px 12px rgba(15, 40, 70, 0.1);
 }
 .brand-text span { color: var(--accent); }
 
@@ -512,6 +516,10 @@ a.card:hover {
     letter-spacing: -0.02em;
     text-decoration: none;
     display: inline-block;
+    text-shadow:
+        0 1px 0 rgba(15, 40, 70, 0.08),
+        0 2px 6px rgba(15, 40, 70, 0.14),
+        0 4px 14px rgba(15, 40, 70, 0.12);
 }
 .landing-logo span { color: var(--accent); }
 .landing-nav {
