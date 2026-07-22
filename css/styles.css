@@ -85,7 +85,7 @@ ul { list-style: none; }
 }
 @media (min-width: 900px) {
     .brand-lockup {
-        height: 78px;
+        height: 178px;
         max-width: 400px;
     }
 }
