@@ -43,21 +43,19 @@ ul { list-style: none; }
 .site-header {
     background: var(--white);
     border-bottom: 1px solid #e2e8f0;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 50;
 }
 
 .header-inner {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 14px 20px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px 24px;
+    gap: 16px;
     flex-wrap: wrap;
-    min-height: 96px;
 }
 
 .brand {
@@ -66,7 +64,6 @@ ul { list-style: none; }
     gap: 12px;
     text-decoration: none;
     color: var(--navy);
-    flex-shrink: 0;
 }
 
 .brand img,
@@ -77,25 +74,14 @@ ul { list-style: none; }
     flex-shrink: 0;
 }
 
-/* Full lockup in site headers — large enough to read */
+/* Full lockup in site headers — original compact size */
 .brand-lockup {
-    height: 88px !important;
-    width: auto !important;
-    max-width: min(520px, 72vw);
+    height: 48px;
+    width: auto;
+    max-width: min(240px, 50vw);
     border-radius: 0 !important;
     object-fit: contain;
     display: block;
-}
-@media (min-width: 900px) {
-    .brand-lockup {
-        height: 104px !important;
-        max-width: 560px;
-    }
-    .header-inner {
-        min-height: 112px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
 }
 
 .brand-text {
