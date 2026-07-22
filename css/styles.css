@@ -74,14 +74,20 @@ ul { list-style: none; }
     flex-shrink: 0;
 }
 
-/* Full lockup in site headers — original compact size */
+/* Full lockup in site headers */
 .brand-lockup {
-    height: 48px;
+    height: 70px;
     width: auto;
-    max-width: min(240px, 50vw);
+    max-width: min(360px, 62vw);
     border-radius: 0 !important;
     object-fit: contain;
     display: block;
+}
+@media (min-width: 900px) {
+    .brand-lockup {
+        height: 78px;
+        max-width: 400px;
+    }
 }
 
 .brand-text {
