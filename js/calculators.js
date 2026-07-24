@@ -151,7 +151,7 @@
     // Low/high $/m² ballparks — orientation only
     var rates = {
       repair: { low: 45, high: 120, label: "Targeted metal roof repairs" },
-      resheet: { low: 95, high: 180, label: "Re-sheet / Colorbond re-roof" },
+      resheet: { low: 95, high: 180, label: "Re-sheet / metal re-roof" },
       replace: { low: 120, high: 260, label: "Full roof replacement package" },
       gutters: { low: 55, high: 140, label: "Gutter & downpipe upgrade (per m² roof)" },
       cladding: { low: 80, high: 200, label: "Wall cladding (per m² wall)" },

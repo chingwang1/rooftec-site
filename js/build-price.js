@@ -10,7 +10,7 @@
   //   ((base + 19 + 14 + 1.785 + profileExtra) * m2 + 1950) * 1.1
   //   base: Metal 108, Decramastic 122; Kliplok +10
   // We undercut slightly and expose the line items.
-  // Default scope = FULL RE-ROOF: strip/remove old covering + supply & install new Colorbond.
+  // Default scope = FULL RE-ROOF: strip/remove old covering + supply & install new metal roofing.
   // "new" scope = new install only (no strip-out), e.g. new build / carport.
   var RATES = {
     // Full re-roof base (includes remove old sheets/tiles labour band)
@@ -188,7 +188,7 @@
     setText(
       "bp-scope-note",
       p.isFull
-        ? "Full re-roof: remove old covering + supply & install new Colorbond package"
+        ? "Full re-roof: remove old covering + supply & install new metal roofing package"
         : "New install only: supply & install new roof (no strip-out of existing roof)"
     );
 
