@@ -34,7 +34,7 @@ ul { list-style: none; }
     color: var(--white);
     text-align: center;
     padding: 10px 16px;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 600;
 }
 .sale-bar strong { color: #7dd3fc; }
