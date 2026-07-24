@@ -76,8 +76,11 @@
     { name: "Monument", hex: "#323233" },
   ];
 
+  var AREA_MIN = 5;
+  var AREA_MAX = 50000;
+
   var state = {
-    areaM2: 160,
+    areaM2: 115,
     planM2: 0,
     pitch: 22.5,
     useSurface: true,
@@ -107,6 +110,19 @@
     );
   }
 
+  /** Display quote: floor to nearest thousand, then −5 (e.g. 21,320 → $20,995). */
+  function charmPrice(n) {
+    if (!isFinite(n) || n <= 0) return 0;
+    var floored = Math.floor(n / 1000) * 1000;
+    if (floored < 1000) return Math.max(0, Math.round(n));
+    return floored - 5;
+  }
+
+  function clampArea(v) {
+    if (!isFinite(v)) return AREA_MIN;
+    return Math.min(AREA_MAX, Math.max(AREA_MIN, v));
+  }
+
   function fmt(n, d) {
     if (!isFinite(n)) return "—";
     return n.toLocaleString("en-AU", {
@@ -120,7 +136,7 @@
   }
 
   function computePrice() {
-    var m2 = Math.max(0, state.areaM2 || 0);
+    var m2 = clampArea(state.areaM2 || 0);
     var isFull = state.scope !== "new";
     var baseTable = isFull ? RATES.basePerM2 : RATES.basePerM2New;
     var base = baseTable[state.currentRoof] || baseTable.unknown;
@@ -181,8 +197,12 @@
 
   function renderPrice() {
     var p = computePrice();
-    setText("bp-total", money(p.total));
-    setText("bp-range", money(p.low) + " – " + money(p.high));
+    // Headline estimate uses charm pricing (e.g. 21320 → $20,995)
+    setText("bp-total", money(charmPrice(p.total)));
+    setText(
+      "bp-range",
+      money(charmPrice(p.low)) + " – " + money(charmPrice(p.high))
+    );
     setText("bp-per-m2", money(p.perM2) + " / m² package");
     setText("bp-area-display", "Based on " + fmt(p.m2, 1) + " m²");
     setText(
@@ -226,7 +246,7 @@
     }
 
     // Sticky bar
-    setText("bp-sticky-total", money(p.total));
+    setText("bp-sticky-total", money(charmPrice(p.total)));
     setText("bp-sticky-area", fmt(p.m2, 1) + " m²");
   }
 
@@ -241,7 +261,7 @@
     var surface = planM2 * pitchFactor(pitch);
     var use = state.useSurface && pitch > 0 ? surface : planM2;
     if (use > 0) {
-      state.areaM2 = Math.round(use * 10) / 10;
+      state.areaM2 = clampArea(Math.round(use * 10) / 10);
       var input = $("bp-area");
       if (input) input.value = String(state.areaM2);
       setText(
@@ -485,10 +505,19 @@
   function wireForm() {
     var area = $("bp-area");
     if (area) {
+      area.min = String(AREA_MIN);
+      area.max = String(AREA_MAX);
       area.value = String(state.areaM2);
       area.addEventListener("input", function () {
         var v = parseFloat(area.value);
-        if (v > 0) state.areaM2 = v;
+        if (!isFinite(v)) return;
+        state.areaM2 = clampArea(v);
+        renderPrice();
+      });
+      area.addEventListener("change", function () {
+        var v = parseFloat(area.value);
+        state.areaM2 = clampArea(isFinite(v) ? v : AREA_MIN);
+        area.value = String(state.areaM2);
         renderPrice();
       });
     }
@@ -576,7 +605,7 @@
     // URL ?area=
     var params = new URLSearchParams(window.location.search);
     var area = parseFloat(params.get("area"));
-    if (area > 0) state.areaM2 = area;
+    if (area > 0) state.areaM2 = clampArea(area);
 
     initMap();
     renderColours();
